@@ -1,0 +1,74 @@
+.cycle
+	z-index: 21
+	&:before
+		width: 100%
+		position: absolute
+		height: 100px
+		background-image: linear-gradient(to top, #efefef, #fff)
+		bottom: 100%
+		left: 0
+		//content: ''
+	&__icons
+		display: flex
+		justify-content: space-between
+		padding: 0 16em
+		position: relative
+		z-index: 2
+		@media only screen and (max-width: 1500px)
+			padding: 0 10em
+		.cycle__line
+			position: absolute
+			top: 10em
+			left: 0
+			right: 0
+			margin: auto
+			background-color: #193f77
+			height: 1px
+			width: 94%
+			@media #{$_lg}
+				//top: 11em
+			@media #{$_md}
+				top: 8em
+			.before
+				width: 5.6em
+				height: 5.6em
+				position: absolute
+				background-image: url('../img/cycle_circle.png')
+				background-size: cover
+				top: -2.7em
+				left: -2.5em
+				.top_connect
+					position: absolute
+					bottom: 2.3em
+					left: 2.3em
+					width: 19.8em
+					height: 57em
+					//@media only screen and (max-width: 1500px)
+			.after
+				@extend .before
+				right: -2.5em
+				left: auto
+		&__item
+			text-align: center
+			.pict_wrapper
+				margin-bottom: 5em
+				position: relative
+				background-color: #fff
+				padding: 20px
+				border-radius: 50%
+				@media only screen and (max-width: 1500px)
+					padding: 15px
+				@media #{$_md}
+					padding: 10px
+				img
+					width: 16em
+					height: 16em
+					@media #{$_lg}
+						width: 14em
+						height: 14em
+					@media #{$_md}
+						width: 12em
+						height: 12em
+			p
+				color: $blueText
+				font-size: 2.1em

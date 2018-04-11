@@ -1,0 +1,123 @@
+.butter
+	&__pict
+		width: 58.33333333%
+		float: left
+		padding-top: 21em
+		position: relative
+		img.main_pict
+			max-width: 95%
+			position: relative
+			z-index: 3
+		img.att
+			position: absolute
+			top: 8em
+			right: -30em
+			z-index: 1
+			width: 67em
+		img.from_bot
+			position: absolute
+			top: 88%
+			right: -10em
+			width: 40em
+			height: auto
+			z-index: 1
+
+	&__text
+		width: 41.66666667%
+		float: left
+		h3
+			text-align: center
+			margin-bottom: 1.8em
+		p
+			font-size: 1.8em
+			line-height: 1.4
+			span
+				position: relative
+				&:before
+					position: absolute
+					content: ''
+					background-size: 100%
+					height: 8px
+					width: 25em
+					background-image: url('../img/butter_under.png')
+					background-repeat: no-repeat
+					left: 0
+					top: 100%
+	.table_wrapper
+		margin-top: 8em
+.milk
+	padding: 3em 0 5em
+	&__pict
+		width: 58.33333333%
+		float: left
+		text-align: right
+		padding-top: 9.5em
+		position: relative
+		img.main_pict
+			max-width: 95%
+			position: relative
+			z-index: 3
+		img.att
+			max-width: 100%
+			position: absolute
+			left: -70px
+			top: 125px
+	&__text
+		width: 41.66666667%
+		float: left
+		h3
+			text-align: center
+			margin-bottom: .5em
+		p
+			font-size: 1.8em
+			line-height: 1.4
+			span
+				position: relative
+				&:before
+					position: absolute
+					content: ''
+					background-size: 100%
+					height: 8px
+					width: 15em
+					background-image: url('../img/milk_under.png')
+					background-repeat: no-repeat
+					left: 0
+					top: 100%
+	.table_wrapper
+		margin-top: 3.2em		
+.table_wrapper
+	height: 45em
+	overflow: hidden
+	position: relative
+	.table
+		font-size: .52vw
+		height: 200px
+		position: relative
+		&:before
+			content: ''
+			width: 10px
+			height: 100%
+			position: absolute
+			right: 0
+			border: 1px solid #5179ad
+		tr
+			transition: background-color .4s
+			&:hover
+				background-color: #003d7c
+				td
+					color: #fff
+			td
+				border: 1px solid #5179ad
+				border-right: 0
+				padding: 20px
+				color: #003d7c
+				font-size: 1.8em
+				transition: color .4s
+.ps__rail-y
+	opacity: 1!important
+	background-color: transparent!important
+.ps__thumb-y
+	background-color: #5179ad!important
+	width: 6px!important
+	cursor: pointer
+	right: 3px!important

@@ -1,0 +1,32 @@
+.map
+	padding: 0
+	img
+		width: 100%
+	&__desc
+		width: 100%
+		position: absolute
+		left: 0
+		bottom: 6.5em
+		p
+			color: #86afdd
+			font-size: 1.8em
+			line-height: 1em
+			padding-left: 5em
+			position: relative
+			font-family: 'Myriad Pro', sans-serif
+			&:before
+				content: ''
+				height: 1.7em
+				width: 1.7em
+				border-radius: 50%
+				position: absolute
+				left: 2em
+				top: 0
+			&.to
+				margin-bottom: 1.1em
+				&:before
+					background-color: #91b94f
+			&.from
+				&:before
+					background-color: #f6eb7d
+					

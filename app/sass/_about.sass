@@ -1,0 +1,158 @@
+.about
+	z-index: 2
+	&:before
+		width: 100%
+		height: 1125px
+		position: absolute
+		content: ''
+		background-image: url('../img/bg.png')
+		background-position: center top
+		left: 0
+		top: -15px
+	&__carousel
+		float: left
+		width: 50%
+		padding-top: 9em
+		padding-right: 9em
+		.carousel
+			height: 62em
+			width: 65em
+			position: relative
+			margin: 0 auto
+			pr
+			.from_carousel
+				position: absolute
+				top: 100%
+				right: 0
+			&__centered
+				position: absolute
+				left: 50%
+				top: 50%
+				transform: translate(-50%, -50%)
+				p
+					color: $blueText
+					position: absolute
+					font-size: 2.1em
+					font-weight: 500
+					width: 130%
+					// bottom: -36px
+					// bottom: -2em
+					top: 6.7em
+				img
+					width: 27em
+			&__item
+				width: 13em
+				height: 13em
+				border: 1px solid $green
+				border-radius: 50%
+				position: absolute
+				transition: background-color .4s
+				overflow: hidden
+				cursor: pointer
+				.about__text
+					display: none
+				i
+					color: $blueText
+					font-size: 12em
+					transition: color .4s
+					height: 100%
+					width: 100%
+					top: 0
+					left: 0
+					position: absolute
+				&.hovered
+					background-color: $green
+					i
+						color: #fff
+			&__item1
+				left: 0
+				top: 50%
+			&__item2
+				left: 6em
+				top: 15%
+			&__item3
+				left: 50%
+				transform: translateX(-50%)
+				top: 0
+			&__item4
+				right: 6em
+				top: 15%
+			&__item5
+				right: 0
+				top: 50%
+			&__item6
+				left: 14em
+				bottom: 0
+			&__item7
+				right: 14em
+				bottom: 0
+	&__text
+		float: left
+		width: 50%
+		font-size: 10px
+		font-size: .52vw
+		@media #{$_md}
+			font-size: .65vw
+		p
+			font-size: 1.8em
+			line-height: 1.4
+		h4
+			font-size: 4.2em
+			color: $blueText
+			line-height: 1
+			position: relative
+			margin: 1em 0
+			span
+				background-color: #fff
+				position: relative
+				z-index: 1
+				&:before
+					content: ''
+					position: absolute
+					width: 25px
+					height: 100%
+					left: 100%
+					top: 0
+					background-color: #fff
+			&:before
+				position: absolute
+				top: 57%
+				content: ''
+				width: 100%
+				border-top: 2px dashed $blueText
+
+			i
+				position: absolute
+				right: 0
+				top: 0
+				padding-left: 30px
+				z-index: 1
+				background-color: #fff
+		.green_ad
+			border: 1px solid $green
+			color: $green
+			position: relative
+			font-size: .52vw
+			margin: 5em 0
+			text-align: center
+			padding: 4em 9em
+			&:after
+				position: absolute
+				content: ''
+				height: 38px
+				background-position: center top
+				background-repeat: no-repeat
+				background-image: url(../img/shadow.png)
+				width: 100%
+				background-size: 100%
+				top: 100%
+				left: 0
+			h4
+				color: $green
+				margin: 0 0 20px
+				&:after
+					display: none
+				&:before
+					display: none
+			p
+				font-weight: 500

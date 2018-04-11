@@ -1,0 +1,217 @@
+$blueText: #1f4079
+$green: #7eba17
+$xs: "(min-width: 319px)"
+$_xs: "(max-width: 350px)"
+$sm: "(min-width: 767px)"
+$_sm: "(max-width: 766px)"
+$md: "(min-width: 992px)"
+$_md: "(max-width: 991px)"
+$lg: "(min-width: 1224px)"
+$_lg: "(max-width: 1224px)"
+$_xlg: "(max-width: 1700px)"
+$xlg: "(min-width: 1700px)"
+img
+	user-select: none
+.form input::-webkit-input-placeholder
+	font-size: 20px
+	font-weight: normal
+	color: #333
+	font-family: "GothamPro", sans-serif
+	font-weight: normal
+	@media #{$_lg}
+		font-size: 16px
+	@media #{$_md}
+		font-size: 12px
+.form input::-moz-placeholder
+	font-size: 20px
+	font-weight: normal
+	color: #333
+	font-family: "GothamPro", sans-serif
+	font-weight: normal
+	@media #{$_lg}
+		font-size: 16px
+	@media #{$_md}
+		font-size: 12px
+.form input:-ms-input-placeholder
+	font-size: 20px
+	font-weight: normal
+	color: #333
+	font-family: "GothamPro", sans-serif
+	font-weight: normal
+	@media #{$_lg}
+		font-size: 16px
+	@media #{$_md}
+		font-size: 12px
+.form input:-moz-placeholder
+	font-size: 20px
+	font-weight: normal
+	color: #333
+	font-family: "GothamPro", sans-serif
+	font-weight: normal
+	@media #{$_lg}
+		font-size: 16px
+	@media #{$_md}
+		font-size: 12px
+.form textarea::-webkit-input-placeholder
+	font-size: 20px
+	color: #333
+	font-family: "GothamPro", sans-serif
+	font-weight: normal
+	@media #{$_lg}
+		font-size: 16px
+	@media #{$_md}
+		font-size: 12px
+.form textarea::-moz-placeholder
+	font-size: 20px
+	color: #333
+	font-family: "GothamPro", sans-serif
+	font-weight: normal
+	@media #{$_lg}
+		font-size: 16px
+	@media #{$_md}
+		font-size: 12px
+.form textarea:-ms-input-placeholder
+	font-size: 20px
+	color: #333
+	font-family: "GothamPro", sans-serif
+	font-weight: normal
+	@media #{$_lg}
+		font-size: 16px
+	@media #{$_md}
+		font-size: 12px
+.form textarea:-moz-placeholder
+	font-size: 20px
+	color: #333
+	font-family: "GothamPro", sans-serif
+	font-weight: normal
+	@media #{$_lg}
+		font-size: 16px
+	@media #{$_md}
+		font-size: 12px
+.clearfix
+	height: 1px
+	clear: both
+	display: table
+html
+	font-size: .52vw
+	@media #{$_xlg}
+		font-size: 8px
+	@media #{$_lg}
+		font-size: 8px
+	@media #{$_md}
+		font-size: 8px
+	@media #{$_sm}
+		font-size: 7.5px
+	@media #{$_xs}
+		font-size: 7px
+	@media #{$xlg}
+		font-size: 10px
+	body
+		min-width: 320px
+		font: 18px "GothamPro", sans-serif
+		font-family: "GothamPro", sans-serif
+		font-weight: normal
+		position: relative
+		margin: 0 auto
+		overflow-x: hidden
+		color: #333
+		input,input:focus,select,select:focus,textarea
+			outline: none
+		h2
+			color: $blueText
+			font-size: 7.2em
+			font-family: 'SignPainter', sans-serif
+			text-align: center
+			margin-bottom: 1.8em
+		a
+			color: inherit
+			outline: none
+			text-decoration: none
+		.main_btn
+			box-shadow: 0 18px 29px rgba(236,0,140,.35)
+			border-radius: 27px 28px 28px 27px/27px 27px 28px 28px
+			height: 55px
+			max-width: 250px
+			display: block
+			text-align: center
+			line-height: 55px
+			letter-spacing: .1em
+			color: #fff
+			font-weight: bold
+		.section_title
+			line-height: 7.2rem
+			font-size: 7.2rem
+			color: $blueText
+			font-weight: bold
+			&--white
+				color: #fff
+			&--buy
+				line-height: 9rem
+				font-size: 4.8rem
+			@media #{$_lg}
+				font-size: 6rem
+			@media #{$_md}
+				font-size: 5rem
+		button
+			border: 0
+			outline: 0
+			cursor: pointer
+		section
+			position: relative
+			background-color: #efefef
+			font-size: .52vw
+			padding: 10em 0
+			@media #{$_md}
+				font-size: .65vw
+			h3
+				font-family: "SignPainter", sans-serif
+				font-size: 6em
+				color: $blueText
+				span
+					display: block
+					font-size: .5em
+			&:after
+				display: table
+				clear: both
+				content: ""
+$cols: 12
+$col: calc( 100% / #{$cols} )
+=col($num)
+	@media #{$xs}
+		width: calc( #{$col} * #{$num} )
+=offset($offset)
+		margin-left: calc( #{$col} * #{$offset}
+// .container
+// 	margin: 0 auto
+// 	position: relative
+// 	&:after
+// 		display: table
+// 		content: ""
+// 		clear: both
+// 	@media #{$xs}
+// 		width: 100%
+// 		padding: 0 15px
+// 	@media #{$sm}
+// 		width: 750px
+// 		padding: 0
+// 	@media #{$md}
+// 		width: 960px
+// 	@media #{$lg}
+// 		width: 1200px
+.container
+	margin: 0 auto
+	width: 100%
+	position: relative
+	padding: 0 100px
+	@media #{$_md}
+		padding: 0 50px
+	@media #{$_sm}
+		padding: 0 40px
+	@media #{$_xs}
+		padding: 0 15px
+	&:after
+		display: table
+		content: ""
+		clear: both
+	// &--narrow
+	// 	padding: 0 200px 0 100px
