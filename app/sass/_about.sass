@@ -1,5 +1,7 @@
 .about
 	z-index: 2
+	@media #{$_sm}
+		padding-bottom: 0
 	&:before
 		width: 100%
 		height: 1125px
@@ -14,16 +16,30 @@
 		width: 50%
 		padding-top: 9em
 		padding-right: 9em
+		position: relative
+		right: 50%
+		@media #{$_sm}
+			width: 100%
+			padding: 0
+			font-size: 1vw
+			right: 0
+			margin-top: 10em
+			//transform: translateY(100%)
 		.carousel
 			height: 62em
 			width: 65em
 			position: relative
 			margin: 0 auto
-			pr
+			max-width: 100%
+			@media #{$_sm}
+				width: auto
+				height: 80em
 			.from_carousel
 				position: absolute
 				top: 100%
 				right: 0
+				@media #{$_lg}
+					display: none
 			&__centered
 				position: absolute
 				left: 50%
@@ -49,6 +65,9 @@
 				transition: background-color .4s
 				overflow: hidden
 				cursor: pointer
+				@media #{$_sm}
+					width: 16.5em
+					height: 16.5em
 				.about__text
 					display: none
 				i
@@ -60,6 +79,10 @@
 					top: 0
 					left: 0
 					position: absolute
+					@media #{$_sm}
+						font-size: 18em
+						left: -6px
+						top: -6px
 				&.hovered
 					background-color: $green
 					i
@@ -83,16 +106,33 @@
 			&__item6
 				left: 14em
 				bottom: 0
+				@media #{$_sm}
+					left: 18em
 			&__item7
 				right: 14em
 				bottom: 0
+				@media #{$_sm}
+					right: 18em
 	&__text
 		float: left
 		width: 50%
 		font-size: 10px
 		font-size: .52vw
+		position: relative
+		left: 50%
 		@media #{$_md}
 			font-size: .65vw
+		@media #{$_sm}
+			font-size: 10px
+			width: 100%
+			left: 0
+		@media #{$_s}
+				font-size: 9px
+		@media #{$_xs}
+			font-size: 8px
+			//transform: translateY(-100%)
+			//top: -100%
+			//position: relative
 		p
 			font-size: 1.8em
 			line-height: 1.4
@@ -102,6 +142,10 @@
 			line-height: 1
 			position: relative
 			margin: 1em 0
+			@media #{$_s}
+				font-size: 3.6em
+			@media #{$_xs}
+				font-size: 2.8em
 			span
 				background-color: #fff
 				position: relative
@@ -136,6 +180,13 @@
 			margin: 5em 0
 			text-align: center
 			padding: 4em 9em
+			@media #{$_sm}
+				font-size: 10px
+				padding: 2em
+			@media #{$_s}
+				font-size: 9px
+			@media #{$_xs}
+				font-size: 8px
 			&:after
 				position: absolute
 				content: ''

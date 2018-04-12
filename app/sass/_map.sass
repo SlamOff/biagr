@@ -1,12 +1,24 @@
 .map
 	padding: 0
-	img
+	@media #{$_sm}
+		overflow: scroll
+		text-align: center
+	&__pict
 		width: 100%
+		@media #{$_sm}
+			width: 1920px
+			display: none
+	&__pict_m
+		@extend .map__pict
+		display: none
+		@media #{$_sm}
+			display: block
 	&__desc
 		width: 100%
 		position: absolute
 		left: 0
 		bottom: 6.5em
+		text-align: left
 		p
 			color: #86afdd
 			font-size: 1.8em
@@ -14,6 +26,10 @@
 			padding-left: 5em
 			position: relative
 			font-family: 'Myriad Pro', sans-serif
+			@media #{$_s}
+				font-size: 1.4em
+			@media #{$_xs}
+				font-size: 1em
 			&:before
 				content: ''
 				height: 1.7em

@@ -1,19 +1,31 @@
 .butter
+	@media #{$_sm}
+		overflow: hidden
+	.container
+		z-index: 3
 	&__pict
 		width: 58.33333333%
 		float: left
 		padding-top: 21em
 		position: relative
+		@media #{$_sm}
+			width: 100%
+			display: none
 		img.main_pict
 			max-width: 95%
 			position: relative
 			z-index: 3
+			width: 91.8em
+			@media #{$_sm}
+				display: none
 		img.att
 			position: absolute
 			top: 8em
 			right: -30em
 			z-index: 1
 			width: 67em
+			@media #{$_sm}
+				display: none
 		img.from_bot
 			position: absolute
 			top: 88%
@@ -21,12 +33,17 @@
 			width: 40em
 			height: auto
 			z-index: 1
-
+			@media #{$_lg}
+				display: none
 	&__text
 		width: 41.66666667%
 		float: left
+		@media #{$_sm}
+			width: 100%
 		h3
 			text-align: center
+			@media #{$_sm}
+				text-align: left
 			margin-bottom: 1.8em
 		p
 			font-size: 1.8em
@@ -43,31 +60,49 @@
 					background-repeat: no-repeat
 					left: 0
 					top: 100%
+					@media #{$_sm}
+						display: none
 	.table_wrapper
 		margin-top: 8em
+		@media #{$_s}
+			margin-top: 5em
 .milk
 	padding: 3em 0 5em
+	@media #{$_sm}
+		overflow: hidden
 	&__pict
 		width: 58.33333333%
 		float: left
 		text-align: right
 		padding-top: 9.5em
 		position: relative
+		@media #{$_sm}
+			width: 100%
+			display: none
 		img.main_pict
 			max-width: 95%
 			position: relative
 			z-index: 3
+			width: 84.7em
+			@media #{$_sm}
+				display: none
 		img.att
 			max-width: 100%
 			position: absolute
 			left: -70px
 			top: 125px
+			@media #{$_sm}
+				display: none
 	&__text
 		width: 41.66666667%
 		float: left
+		@media #{$_sm}
+			width: 100%
 		h3
 			text-align: center
 			margin-bottom: .5em
+			@media #{$_sm}
+				text-align: right
 		p
 			font-size: 1.8em
 			line-height: 1.4
@@ -83,16 +118,27 @@
 					background-repeat: no-repeat
 					left: 0
 					top: 100%
+					@media #{$_sm}
+						display: none
 	.table_wrapper
 		margin-top: 3.2em		
 .table_wrapper
 	height: 45em
 	overflow: hidden
 	position: relative
+	@media #{$_sm}
+		height: auto
 	.table
 		font-size: .52vw
 		height: 200px
 		position: relative
+		table-layout: fixed
+		@media #{$_sm}
+			font-size: 10px
+		@media #{$_s}
+			font-size: 9px
+		@media #{$_xs}
+			font-size: 8px
 		&:before
 			content: ''
 			width: 10px
@@ -100,6 +146,8 @@
 			position: absolute
 			right: 0
 			border: 1px solid #5179ad
+			@media #{$_sm}
+				display: none
 		tr
 			transition: background-color .4s
 			&:hover
@@ -113,11 +161,22 @@
 				color: #003d7c
 				font-size: 1.8em
 				transition: color .4s
+				@media #{$_sm}
+					border-right: 1px solid #5179ad
+				@media #{$_s}
+					padding: 10px
 .ps__rail-y
 	opacity: 1!important
 	background-color: transparent!important
+	@media #{$_sm}
+		opacity: 0!important
 .ps__thumb-y
 	background-color: #5179ad!important
 	width: 6px!important
 	cursor: pointer
 	right: 3px!important
+.main_pict_m
+	@media #{$sm}
+		display: none
+	@media #{$_s}
+		max-width: 110%

@@ -11,7 +11,12 @@
 	display: block
 	@media #{$_md}
 		font-size: .65vw
-	h1
+	@media #{$_sm}
+		padding-bottom: 5em
+		padding-top: 65vw
+		font-size: 10px
+		background-image: url('../img/main_m.jpg')
+	&__title
 		font-size: 10em
 		position: absolute
 		color: #fff
@@ -19,15 +24,44 @@
 		font-family: 'SignPainter2', sans-serif
 		font-style: italic
 		left: 6em
+		@media #{$_sm}
+			font-size: 5.5em
+			left: 0
+			right: 0
+			top: 0
+			bottom: 0
+			position: static
+			text-align: center
+			bottom: 2.5em
+			display: none
+		@media #{$_s}
+			font-size: 4em
+	&__title_m
+		@extend .main__title
+		display: none
+		@media #{$_sm}
+			display: block
 	.video_btn
 		position: absolute
 		bottom: 16em
 		left: 12em
 		cursor: pointer
 		color: #000
+		@media #{$_sm}
+			bottom: 3em
+			width: 100%
+			left: 0
+			right: 0
+			text-align: center
+			left: 0
+			top: 0
+			bottom: 0
+			right: 0
+			position: static
 		p
 			font-size: 1.7em
 			position: relative
+			@media #{$_sm}
 			&:before
 				width: 3.3em
 				height: 3.3em
@@ -38,6 +72,9 @@
 				background-size: 100%
 				margin-right: 20px
 				margin-top: -5px
+				@media #{$_sm}
+					display: block
+					margin: 0 auto 15px
 	.top_connect
 		position: absolute
 		top: 86%
@@ -54,6 +91,18 @@
 		border: 1px solid #fff
 		height: 25em
 		width: 25em
+		@media #{$_sm}
+			width: 21em
+			height: 21em
+			position: relative
+			right: 0
+			left: 0
+			bottom: 0
+			top: 0
+			margin: 0 auto 5vw
+		@media #{$_s}
+			width: 16em
+			height: 16em
 		img
 			position: absolute
 			width: 37.2em
@@ -61,6 +110,61 @@
 			left: 55%
 			top: 55%
 			transform: translate(-50%, -50%)
+			@media #{$_sm}
+				width: 36em
+				left: 56%
+				top: 56%
+			@media #{$_s}
+				width: 25em
+				height: auto
+	&__menu_btn
+		display: none
+		width: 40px
+		height: 40px
+		border-radius: 50%
+		border: 1px solid $green
+		z-index: 200
+		position: relative
+		.sandwich
+			width: 20px
+			height: 20px
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			margin: auto
+			span
+				height: 1px
+				width: 100%
+				position: relative
+				border-radius: 2px
+				left: 0
+				background-color: #193f77
+				display: block
+				&.sw-topper
+					top: 5px
+					transition: transform 0.2s, top 0.1s
+				&.sw-bottom
+					top: 9px
+					transition: transform 0.2s, top 0.1s
+					transition-delay: 0.05s, 0s
+				&.sw-footer
+					top: 13px
+					transition: all 0.3s
+					transition-delay: 0.05s
+		.sandwich.active .sw-topper
+			top: 10px
+			transform: rotate(-45deg)
+		.sandwich.active .sw-bottom
+			top: 9px
+			transform: rotate(45deg)
+		.sandwich.active .sw-footer
+			opacity: 0
+			top: 0
+			transform: rotate(180deg)
+		@media #{$_sm}
+			display: block
 	&__header
 		height: 16em
 		min-height: 10em
@@ -70,14 +174,49 @@
 		width: 100%
 		z-index: 200
 		transition: box-shadow .4s
+		@media #{$_sm}
+			height: auto
+			//background-color: #fff
+			min-height: 0
 		&--scrolled
 			box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5)
-			background-color: #fff
+			background-color: #fff!important
+			.container
+				padding-top: 25px
+				padding-bottom: 25px
+			@media #{$_sm}
+				height: auto
+				.main__header__menu
+					top: 99%
+					padding-top: 0
+				.main__header__btn
+					top: 15px
+					width: 57px
+					height: 57px
+					border-radius: 50%
+					background-image: linear-gradient(bottom, #6b9e13 -15.5%, #b2ed27 115.5%)
+					font-size: 0
+					transition: top .3s
+					img
+						display: block
+						position: absolute
+						top: 0
+						left: 0
+						right: 0
+						bottom: 0
+						margin: auto
 		.container
 			display: flex
 			align-items: center
 			justify-content: flex-end
 			height: 100%
+			@media #{$_sm}
+				justify-content: space-between
+				height: auto
+				padding-top: 25px
+				padding-bottom: 25px
+				&:after
+					position: absolute
 		&__logo
 			position: absolute
 			left: 100px
@@ -86,6 +225,12 @@
 			width: 26em
 			@media #{$_md}
 				left: 50px
+			@media #{$_sm}
+				position: static
+				transform: none
+				max-width: 110px
+			@media #{$_xs}
+				max-width: 90px
 			img
 				width: 100%
 				max-width: 260px
@@ -98,6 +243,26 @@
 				margin-left: 4em
 				font-size: 1.4em
 				cursor: pointer
+				@media #{$_sm}
+					font-size: 1.8em
+					line-height: 3.6em
+			@media #{$_sm}
+				background-color: #fff
+				max-height: 0
+				position: absolute
+				overflow: hidden
+				transition: max-height .3s
+				height: auto
+				width: 100%
+				text-align: center
+				left: 0
+				top: 100%
+				padding-top: 40px
+				box-shadow: 4px 10px 20px rgba(0, 0, 0, 0.5)
+				opacity: 0
+				li
+					display: block
+					margin: 0
 		&__btn
 			width: 255px
 			height: 43px
@@ -114,6 +279,21 @@
 			text-align: center
 			background-image: linear-gradient(bottom, #6b9e13 -15.5%, #b2ed27 115.5%)
 			margin-left: 5em
+			position: relative
+			img
+				display: none
+			@media #{$_sm}
+				width: 100%
+				position: absolute
+				max-width: 400px
+				left: 0
+				right: 0
+				margin: auto
+				top: 80px
+			@media #{$_s}
+				max-width: calc(100% - 40px)
+			@media #{$_xs}
+				max-width: calc(100% - 30px)
 		&__lang
 			font-size: 1.4em
 			text-transform: uppercase
@@ -121,6 +301,11 @@
 			line-height: 1.4em
 			margin-left: 4em
 			position: relative
+			@media #{$_sm}
+				position: absolute
+				right: 110px
+			@media #{$_s}
+				right: 82px
 			.current
 				position: relative
 				display: inline-block

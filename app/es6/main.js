@@ -22,15 +22,40 @@ function ready(d) {
 		}
 	}
 
+
+	let toggleBtn = d.querySelector('.main__menu_btn');
+	let sandwich = d.querySelector('.sandwich');
+	let menu = d.querySelector('.main__header__menu');
+
+	toggleBtn.onclick = function(){
+		sandwich.classList.toggle('active');
+		if(sandwich.classList.contains('active')){
+			menu.style.maxHeight = '100vh';
+			menu.style.opacity = 1;
+			d.querySelector('.main__header').style.backgroundColor = '#fff';
+		}
+		else {
+			menu.style.maxHeight = 0;
+			menu.style.opacity = 0;
+			d.querySelector('.main__header').style.backgroundColor = 'transparent';
+		}
+	}
+
 	let header = d.getElementsByClassName('main__header')[0];
-	window.onscroll = function(){
+	let main = d.getElementsByClassName('main')[0];
+	window.addEventListener('scroll', scroll);
+	scroll();
+	function scroll(){
 		if(window.pageYOffset){
 			header.classList.add('main__header--scrolled');
+			main.style.zIndex = 25;
 		}
 		else {
 			header.classList.remove('main__header--scrolled');
+			main.style.zIndex = 20;
 		}
 	}
+
 
 	let contact = d.getElementById('contact');
 	let headerBtn = d.getElementsByClassName('main__header__btn')[0];
@@ -40,6 +65,10 @@ function ready(d) {
 	for (let i = 0; i < linkNav.length; i++) {
 		linkNav[i].addEventListener('click', function(e){
 			e.preventDefault();
+			if(window.innerWidth < 768){
+				menu.style.maxHeight = 0;
+				sandwich.classList.remove('active');
+			}
 			let height = parseInt(getComputedStyle(header).height);
 			let w = window.pageYOffset - height;
 			let hash = this.href.replace(/[^#]*(.*)/, '$1');
@@ -109,14 +138,48 @@ function ready(d) {
 		mask: '+{3}(\\000)000-00-00'
 	};
 	let mask = new IMask(phone, maskOptions);
+
+	let close = d.querySelector('.close_thanks');
+	let thanks = d.querySelector('.thanks');
+	close.onclick = function(e){
+		e.preventDefault();
+		thanks.classList.remove('visible');
+	}
+
 	form.onsubmit = function(e){
+		function sendData(){
+			let xhr = new XMLHttpRequest();
+			let url = 'mail.php';
+			xhr.open('GET', url, true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState != 4) return;
+				if (xhr.status != 200) {
+					console.log('Ошибка. Данные с сервера не получены.');
+				}
+				else {
+					thanks.classList.add('visible');
+					setTimeout(function(){
+						thanks.classList.remove('visible');
+					}, 5000);
+				}
+			}
+		}
+		let valid = false;
 		validate(this);
 		let span = d.getElementsByClassName('error');
 		for(let i = 0; i < span.length; i++){
 			if (span[i].textContent != ''){
 				return false;
 			}
+			else {
+				valid = true;
+			}
 		}
+		if(valid){
+			sendData();
+		}
+
 	}
 	let placeholder;
 	let elems = form.getElementsByTagName('input');
@@ -161,22 +224,50 @@ function ready(d) {
 
 	let firstTable = d.querySelectorAll('.table_wrapper')[0];
 	let secondTable = d.querySelectorAll('.table_wrapper')[1];
-	let ps = new PerfectScrollbar(firstTable, {
-		wheelSpeed: 2,
-		wheelPropagation: false,
-		minScrollbarLength: 20
+	function tableSettings(){
+		if(window.innerWidth > 768){
+			let ps = new PerfectScrollbar(firstTable, {
+				wheelSpeed: 2,
+				wheelPropagation: false,
+				minScrollbarLength: 20
+			});
+			let ps2 = new PerfectScrollbar(secondTable, {
+				wheelSpeed: 2,
+				wheelPropagation: false,
+				minScrollbarLength: 20
+			});
+		}
+		else {
+			d.querySelector('.table_wrapper').classList.remove('ps');
+		}
+	}
+	tableSettings();
+
+	window.addEventListener("resize", function() {
+		tableSettings();
+		setMapScroll();
 	});
-	let ps2 = new PerfectScrollbar(secondTable, {
-		wheelSpeed: 2,
-		wheelPropagation: false,
-		minScrollbarLength: 20
+	window.addEventListener("orientationchange", function() {
+		tableSettings();
+		setMapScroll();
 	});
+	
 	const picts = d.getElementsByTagName('img');
 	for(let i = 0; i < picts.length; i++){
 		picts[i].ondragstart = function(){
 			return false;
 		}
 	}
+
+	function setMapScroll(){
+		let mapWrapper = document.querySelector('.map');
+		let map = mapWrapper.querySelector('.map__pict_m');
+		let w = window.innerWidth;
+		let imgW = parseFloat(getComputedStyle(map).width);
+		mapWrapper.scrollLeft = imgW/2 - w/2;
+	}
+	setMapScroll();
+	
 };
 
 document.addEventListener("DOMContentLoaded", ready.bind(null, document));

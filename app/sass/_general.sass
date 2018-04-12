@@ -2,8 +2,10 @@ $blueText: #1f4079
 $green: #7eba17
 $xs: "(min-width: 319px)"
 $_xs: "(max-width: 350px)"
-$sm: "(min-width: 767px)"
-$_sm: "(max-width: 766px)"
+$_s: "(max-width: 575px)"
+$s: "(min-width: 576px)"
+$sm: "(min-width: 768px)"
+$_sm: "(max-width: 767px)"
 $md: "(min-width: 992px)"
 $_md: "(max-width: 991px)"
 $lg: "(min-width: 1224px)"
@@ -21,7 +23,9 @@ img
 	@media #{$_lg}
 		font-size: 16px
 	@media #{$_md}
-		font-size: 12px
+		font-size: 20px
+	@media #{$_xs}
+		font-size: 16px
 .form input::-moz-placeholder
 	font-size: 20px
 	font-weight: normal
@@ -31,7 +35,9 @@ img
 	@media #{$_lg}
 		font-size: 16px
 	@media #{$_md}
-		font-size: 12px
+		font-size: 20px
+	@media #{$_xs}
+		font-size: 16px
 .form input:-ms-input-placeholder
 	font-size: 20px
 	font-weight: normal
@@ -41,7 +47,9 @@ img
 	@media #{$_lg}
 		font-size: 16px
 	@media #{$_md}
-		font-size: 12px
+		font-size: 20px
+	@media #{$_xs}
+		font-size: 16px
 .form input:-moz-placeholder
 	font-size: 20px
 	font-weight: normal
@@ -51,7 +59,9 @@ img
 	@media #{$_lg}
 		font-size: 16px
 	@media #{$_md}
-		font-size: 12px
+		font-size: 20px
+	@media #{$_xs}
+		font-size: 16px
 .form textarea::-webkit-input-placeholder
 	font-size: 20px
 	color: #333
@@ -60,7 +70,9 @@ img
 	@media #{$_lg}
 		font-size: 16px
 	@media #{$_md}
-		font-size: 12px
+		font-size: 20px
+	@media #{$_xs}
+		font-size: 16px
 .form textarea::-moz-placeholder
 	font-size: 20px
 	color: #333
@@ -69,7 +81,9 @@ img
 	@media #{$_lg}
 		font-size: 16px
 	@media #{$_md}
-		font-size: 12px
+		font-size: 20px
+	@media #{$_xs}
+		font-size: 16px
 .form textarea:-ms-input-placeholder
 	font-size: 20px
 	color: #333
@@ -78,7 +92,9 @@ img
 	@media #{$_lg}
 		font-size: 16px
 	@media #{$_md}
-		font-size: 12px
+		font-size: 20px
+	@media #{$_xs}
+		font-size: 16px
 .form textarea:-moz-placeholder
 	font-size: 20px
 	color: #333
@@ -87,7 +103,9 @@ img
 	@media #{$_lg}
 		font-size: 16px
 	@media #{$_md}
-		font-size: 12px
+		font-size: 20px
+	@media #{$_xs}
+		font-size: 16px
 .clearfix
 	height: 1px
 	clear: both
@@ -123,6 +141,12 @@ html
 			font-family: 'SignPainter', sans-serif
 			text-align: center
 			margin-bottom: 1.8em
+			@media #{$_sm}
+				font-size: 5.5em
+			@media #{$_s}
+				font-size: 4em
+			@media #{$_xs}
+				font-size: 3.2em
 		a
 			color: inherit
 			outline: none
@@ -163,10 +187,24 @@ html
 			padding: 10em 0
 			@media #{$_md}
 				font-size: .65vw
+			@media #{$_sm}
+				font-size: 10px
+			@media #{$_s}
+				font-size: 9px
+				padding: 7em 0
+			@media #{$_xs}
+				font-size: 8px
+				padding: 5em 0
 			h3
 				font-family: "SignPainter", sans-serif
 				font-size: 6em
 				color: $blueText
+				@media #{$_sm}
+					font-size: 5.5em
+				@media #{$_s}
+					font-size: 4em
+				@media #{$_xs}
+					font-size: 3.2em
 				span
 					display: block
 					font-size: .5em
@@ -181,23 +219,6 @@ $col: calc( 100% / #{$cols} )
 		width: calc( #{$col} * #{$num} )
 =offset($offset)
 		margin-left: calc( #{$col} * #{$offset}
-// .container
-// 	margin: 0 auto
-// 	position: relative
-// 	&:after
-// 		display: table
-// 		content: ""
-// 		clear: both
-// 	@media #{$xs}
-// 		width: 100%
-// 		padding: 0 15px
-// 	@media #{$sm}
-// 		width: 750px
-// 		padding: 0
-// 	@media #{$md}
-// 		width: 960px
-// 	@media #{$lg}
-// 		width: 1200px
 .container
 	margin: 0 auto
 	width: 100%
@@ -207,11 +228,11 @@ $col: calc( 100% / #{$cols} )
 		padding: 0 50px
 	@media #{$_sm}
 		padding: 0 40px
+	@media #{$_s}
+		padding: 0 20px
 	@media #{$_xs}
 		padding: 0 15px
 	&:after
 		display: table
 		content: ""
 		clear: both
-	// &--narrow
-	// 	padding: 0 200px 0 100px

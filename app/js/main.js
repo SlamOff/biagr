@@ -21,14 +21,36 @@ function ready(d) {
 		};
 	}
 
-	var header = d.getElementsByClassName('main__header')[0];
-	window.onscroll = function () {
-		if (window.pageYOffset) {
-			header.classList.add('main__header--scrolled');
+	var toggleBtn = d.querySelector('.main__menu_btn');
+	var sandwich = d.querySelector('.sandwich');
+	var menu = d.querySelector('.main__header__menu');
+
+	toggleBtn.onclick = function () {
+		sandwich.classList.toggle('active');
+		if (sandwich.classList.contains('active')) {
+			menu.style.maxHeight = '100vh';
+			menu.style.opacity = 1;
+			d.querySelector('.main__header').style.backgroundColor = '#fff';
 		} else {
-			header.classList.remove('main__header--scrolled');
+			menu.style.maxHeight = 0;
+			menu.style.opacity = 0;
+			d.querySelector('.main__header').style.backgroundColor = 'transparent';
 		}
 	};
+
+	var header = d.getElementsByClassName('main__header')[0];
+	var main = d.getElementsByClassName('main')[0];
+	window.addEventListener('scroll', scroll);
+	scroll();
+	function scroll() {
+		if (window.pageYOffset) {
+			header.classList.add('main__header--scrolled');
+			main.style.zIndex = 25;
+		} else {
+			header.classList.remove('main__header--scrolled');
+			main.style.zIndex = 20;
+		}
+	}
 
 	var contact = d.getElementById('contact');
 	var headerBtn = d.getElementsByClassName('main__header__btn')[0];
@@ -38,6 +60,10 @@ function ready(d) {
 	for (var _i = 0; _i < linkNav.length; _i++) {
 		linkNav[_i].addEventListener('click', function (e) {
 			e.preventDefault();
+			if (window.innerWidth < 768) {
+				menu.style.maxHeight = 0;
+				sandwich.classList.remove('active');
+			}
 			var height = parseInt(getComputedStyle(header).height);
 			var w = window.pageYOffset - height;
 			var hash = this.href.replace(/[^#]*(.*)/, '$1');
@@ -107,13 +133,44 @@ function ready(d) {
 		mask: '+{3}(\\000)000-00-00'
 	};
 	var mask = new IMask(phone, maskOptions);
+
+	var close = d.querySelector('.close_thanks');
+	var thanks = d.querySelector('.thanks');
+	close.onclick = function (e) {
+		e.preventDefault();
+		thanks.classList.remove('visible');
+	};
+
 	form.onsubmit = function (e) {
+		function sendData() {
+			var xhr = new XMLHttpRequest();
+			var url = 'mail.php';
+			xhr.open('GET', url, true);
+			xhr.send();
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState != 4) return;
+				if (xhr.status != 200) {
+					console.log('Ошибка. Данные с сервера не получены.');
+				} else {
+					thanks.classList.add('visible');
+					setTimeout(function () {
+						thanks.classList.remove('visible');
+					}, 5000);
+				}
+			};
+		}
+		var valid = false;
 		validate(this);
 		var span = d.getElementsByClassName('error');
 		for (var _i2 = 0; _i2 < span.length; _i2++) {
 			if (span[_i2].textContent != '') {
 				return false;
+			} else {
+				valid = true;
 			}
+		}
+		if (valid) {
+			sendData();
 		}
 	};
 	var placeholder = void 0;
@@ -159,22 +216,48 @@ function ready(d) {
 
 	var firstTable = d.querySelectorAll('.table_wrapper')[0];
 	var secondTable = d.querySelectorAll('.table_wrapper')[1];
-	var ps = new PerfectScrollbar(firstTable, {
-		wheelSpeed: 2,
-		wheelPropagation: false,
-		minScrollbarLength: 20
+	function tableSettings() {
+		if (window.innerWidth > 768) {
+			var ps = new PerfectScrollbar(firstTable, {
+				wheelSpeed: 2,
+				wheelPropagation: false,
+				minScrollbarLength: 20
+			});
+			var ps2 = new PerfectScrollbar(secondTable, {
+				wheelSpeed: 2,
+				wheelPropagation: false,
+				minScrollbarLength: 20
+			});
+		} else {
+			d.querySelector('.table_wrapper').classList.remove('ps');
+		}
+	}
+	tableSettings();
+
+	window.addEventListener("resize", function () {
+		tableSettings();
+		setMapScroll();
 	});
-	var ps2 = new PerfectScrollbar(secondTable, {
-		wheelSpeed: 2,
-		wheelPropagation: false,
-		minScrollbarLength: 20
+	window.addEventListener("orientationchange", function () {
+		tableSettings();
+		setMapScroll();
 	});
+
 	var picts = d.getElementsByTagName('img');
 	for (var _i6 = 0; _i6 < picts.length; _i6++) {
 		picts[_i6].ondragstart = function () {
 			return false;
 		};
 	}
+
+	function setMapScroll() {
+		var mapWrapper = document.querySelector('.map');
+		var map = mapWrapper.querySelector('.map__pict_m');
+		var w = window.innerWidth;
+		var imgW = parseFloat(getComputedStyle(map).width);
+		mapWrapper.scrollLeft = imgW / 2 - w / 2;
+	}
+	setMapScroll();
 };
 
 document.addEventListener("DOMContentLoaded", ready.bind(null, document));

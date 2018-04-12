@@ -1,5 +1,7 @@
 .cycle
 	z-index: 21
+	@media #{$_sm}
+		padding-bottom: 2em
 	&:before
 		width: 100%
 		position: absolute
@@ -16,6 +18,13 @@
 		z-index: 2
 		@media only screen and (max-width: 1500px)
 			padding: 0 10em
+		@media #{$_sm}
+			display: block
+			padding: 0 3em
+			&:after
+				clear: both
+				display: table
+				content: ''
 		.cycle__line
 			position: absolute
 			top: 10em
@@ -43,13 +52,18 @@
 					left: 2.3em
 					width: 19.8em
 					height: 57em
-					//@media only screen and (max-width: 1500px)
+					@media #{$_sm}
+						display: none
 			.after
 				@extend .before
 				right: -2.5em
 				left: auto
 		&__item
 			text-align: center
+			width: 50%
+			float: left
+			@media #{$_sm}
+				margin-bottom: 4em
 			.pict_wrapper
 				margin-bottom: 5em
 				position: relative
@@ -60,6 +74,9 @@
 					padding: 15px
 				@media #{$_md}
 					padding: 10px
+				@media #{$_sm}
+					display: inline-block
+					margin-bottom: 2em
 				img
 					width: 16em
 					height: 16em
@@ -69,6 +86,11 @@
 					@media #{$_md}
 						width: 12em
 						height: 12em
+					@media #{$_sm}
+						width: 11em
+						height: 11em
 			p
 				color: $blueText
 				font-size: 2.1em
+				@media #{$_sm}
+					font-size: 1.8em

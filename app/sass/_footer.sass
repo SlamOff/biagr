@@ -7,11 +7,16 @@
 		float: left
 		position: relative
 		padding-top: 10em
+		@media #{$_sm}
+			width: 100%
+			padding-top: 0
 		.contact_pict
 			position: absolute
 			right: -6em
 			top: -50px
 			width: 43em
+			@media #{$_sm}
+				display: none
 		p
 			font-size: 1.8em
 			margin-bottom: 2.7em
@@ -19,6 +24,8 @@
 			position: relative
 			line-height: 2em
 			transition: color .4s
+			@media #{$_sm}
+				line-height: 1.3em
 			&:before
 				position: absolute
 				content: ''
@@ -61,18 +68,33 @@
 		h3
 			display: inline-block
 			position: relative
-			img
-				//content: ''
-				//background-image: url('../img/arrow_contact.png')
-				//background-size: 100%
+			.contact_arrow
 				position: absolute
 				width: 3.2em
 				height: 3em
 				left: 100%
 				top: 40px
 				z-index: 3
+				display: block
+				@media #{$_sm}
+					display: none
+			.contact_arrow_m
+				position: absolute
+				// width: 3.2em
+				// height: 3em
+				left: 50%
+				top: 120%
+				z-index: 3
+				display: none
+				@media #{$_sm}
+					display: block
+				@media #{$_s}
+					left: 40%
 		width: 50%
 		float: left
+		@media #{$_sm}
+			width: 100%
+			text-align: center
 		.form_wrapper
 			position: relative
 			.shadow
@@ -86,15 +108,57 @@
 			.form
 				margin-top: 7em
 				box-shadow: 0 0 25px rgba(1,2,2,.15)
-				padding: 10em 7em 5em 7em
 				position: relative
 				background-color: #fff
 				z-index: 2
+				&__data
+					position: relative
+					z-index: 2
+					padding: 10em 7em 5em 7em
+					@media #{$_sm}
+						padding-top: 4em
+					@media #{$_s}
+						padding: 3em
+				.thanks
+					position: absolute
+					width: 100%
+					height: 100%
+					top: 0
+					left: 0
+					display: flex
+					justify-content: center
+					align-items: center
+					background-color: #fff
+					z-index: 100
+					text-align: center
+					opacity: 0
+					z-index: -1
+					transition: all .3s
+					&.visible
+						z-index: 100
+						opacity: 1
+					h4
+						font-size: 6em
+						color: #193f77
+						width: 100%
+						@media #{$_sm}
+							font-size: 5.5em
+					p
+						font-size: 2.1em
+						line-height: 1.2em
+						width: 100%
+						@media #{$_sm}
+							font-size: 1.8em
 				fieldset
 					width: 42%
 					float: left
+					position: relative
+					z-index: 2
 					&:first-of-type
 						margin-right: 16%
+					@media #{$_sm}
+						width: 100%
+						margin: 0!important
 					label
 						height: 5em
 						display: block
@@ -108,6 +172,7 @@
 							border: 0
 							background: none
 							padding: 0
+							font-size: 2em
 						.error
 							color: red
 							position: absolute
@@ -121,6 +186,7 @@
 					background: none
 					width: 100%
 					height: 7em
+					font-size: 2em
 				button
 					font-size: 3em
 					width: 100%
@@ -136,6 +202,14 @@
 						background-image: linear-gradient(bottom, #6b9e13 -15.5%, #b2ed27 115.5%)
 .footer
 	font-size: .52vw
+	@media #{$_sm}
+		font-size: 10px
+	@media #{$_s}
+		font-size: 9px
+	@media #{$_xs}
+		font-size: 8px
 	iframe
 		width: 100%
 		height: 45em
+		@media #{$_sm}
+			height: 32em
