@@ -39,6 +39,8 @@
 	&__title_m
 		@extend .main__title
 		display: none
+		margin-bottom: 20px
+		
 		@media #{$_sm}
 			display: block
 	.video_btn
@@ -75,6 +77,8 @@
 				@media #{$_sm}
 					display: block
 					margin: 0 auto 15px
+					width: 2em
+					height: 2em
 	.top_connect
 		position: absolute
 		top: 86%
@@ -173,14 +177,18 @@
 		left: 0
 		width: 100%
 		z-index: 200
-		transition: box-shadow .4s
+		@media #{$sm}
+			transition: box-shadow .4s
 		@media #{$_sm}
 			height: auto
 			//background-color: #fff
 			min-height: 0
 		&--scrolled
 			box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.5)
+			transition: box-shadow .4s
 			background-color: #fff!important
+			@media #{$sm}
+				transition: none
 			.container
 				padding-top: 25px
 				padding-bottom: 25px

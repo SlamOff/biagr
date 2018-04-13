@@ -54,8 +54,16 @@
 					// bottom: -36px
 					// bottom: -2em
 					top: 6.7em
+					@media #{$_s}
+						font-size: 2.6em
+						top: 8em
+					@media #{$_xs}
+						font-size: 3em
+						top: 6.2em
 				img
 					width: 27em
+					@media #{$_s}
+						width: 35em
 			&__item
 				width: 13em
 				height: 13em
@@ -142,10 +150,11 @@
 			line-height: 1
 			position: relative
 			margin: 1em 0
-			@media #{$_s}
-				font-size: 3.6em
-			@media #{$_xs}
-				font-size: 2.8em
+			font-family: 'SignPainter2', sans-serif
+			// @media #{$_s}
+			// 	font-size: 3.6em
+			// @media #{$_xs}
+			// 	font-size: 2.8em
 			span
 				background-color: #fff
 				position: relative
@@ -172,6 +181,8 @@
 				padding-left: 30px
 				z-index: 1
 				background-color: #fff
+				@media #{$_s}
+					padding-left: 15px
 		.green_ad
 			border: 1px solid $green
 			color: $green

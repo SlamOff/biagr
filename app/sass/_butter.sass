@@ -42,12 +42,35 @@
 			width: 100%
 		h3
 			text-align: center
+			margin-bottom: 1.8em
 			@media #{$_sm}
 				text-align: left
-			margin-bottom: 1.8em
+				margin-bottom: .5em
 		p
 			font-size: 1.8em
 			line-height: 1.4
+			img
+				display: none
+				position: absolute
+				top: 0
+				left: 0
+			@media #{$_sm}
+				padding-top: 50px
+				position: relative
+				img
+					display: block
+					top: -90px
+					left: -40px
+			@media #{$_s}
+				img
+					max-width: 60%
+					top: -95px
+					left: -20px
+			@media #{$_xs}
+				img
+					left: -15px
+					max-width: 70%
+					top: -60px
 			span
 				position: relative
 				&:before
@@ -90,7 +113,11 @@
 			max-width: 100%
 			position: absolute
 			left: -70px
-			top: 125px
+			top: 30px
+			z-index: 19
+			@media (max-width: 1500px)
+				top: 0
+
 			@media #{$_sm}
 				display: none
 	&__text
@@ -106,6 +133,21 @@
 		p
 			font-size: 1.8em
 			line-height: 1.4
+			img
+				display: none
+				position: absolute
+				top: -90px
+				right: 0
+			@media #{$_sm}
+				padding-top: 50px
+				position: relative
+				img
+					display: block
+					max-width: 50%
+			@media #{$_xs}
+				img
+					top: -60px
+
 			span
 				position: relative
 				&:before
@@ -175,8 +217,16 @@
 	width: 6px!important
 	cursor: pointer
 	right: 3px!important
+.mobile_pict_wrapper
+	text-align: right
 .main_pict_m
 	@media #{$sm}
 		display: none
 	@media #{$_s}
 		max-width: 110%
+.butter .main_pict_m
+	transform: translateX(40px)
+	@media #{$_s}
+		transform: translateX(20px)
+	@media #{$_xs}
+		transform: translateX(15px)

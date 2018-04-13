@@ -32,12 +32,17 @@
 			right: 0
 			margin: auto
 			background-color: #193f77
-			height: 1px
+			height: 2px
 			width: 94%
 			@media #{$_lg}
 				//top: 11em
 			@media #{$_md}
 				top: 8em
+			@media #{$_sm}
+				top: 6.5em
+				width: 95%
+			@media #{$_xs}
+				top: 5em
 			.before
 				width: 5.6em
 				height: 5.6em
@@ -54,16 +59,85 @@
 					height: 57em
 					@media #{$_sm}
 						display: none
+				.line_down
+					width: 2px
+					left: 0
+					position: absolute
+					right: 0
+					margin: auto
+					top: 2.3em
 			.after
 				@extend .before
 				right: -2.5em
 				left: auto
+				@media #{$_sm}
+					background-image: none
+				.line_down
+					width: 2px
+					left: 5px
+					position: absolute
+					right: 0
+					margin: auto
+					top: 2.7em
+					height: 212px
+					background-color: #193f77
+					@media #{$_s}
+						height: 192px
+					@media #{$_xs}
+						height: 154px
+					@media #{$sm}
+						display: none
+		.cycle__line_mid
+			width: 95%
+			right: 0
+			left: 0
+			top: 0
+			bottom: 80px
+			margin: auto
+			background-color: #193f77
+			position: absolute
+			height: 2px
+			@media #{$_xs}
+				bottom: 65px
+			.before
+				width: 2px
+				height: 212px
+				position: absolute
+				bottom: 0
+				left: 0
+				background-color: #193f77
+				@media #{$_s}
+					height: 192px
+				@media #{$_xs}
+					height: 146px
+			@media #{$sm}
+				display: none
+			.after
+				width: 5.6em
+				height: 5.6em
+				position: absolute
+				background-image: url('../img/cycle_circle.png')
+				background-size: cover
+				top: -2.7em
+				right: -2.5em
+				
+		.cycle__line_bottom
+			@extend .cycle__line_mid
+			top: auto
+			bottom: 145px
+			@media #{$_s}
+				bottom: 136px
+			@media #{$_xs}
+				bottom: 106px
+			.before
+				@media #{$_xs}
+					height: 152px
 		&__item
 			text-align: center
-			width: 50%
-			float: left
 			@media #{$_sm}
 				margin-bottom: 4em
+				width: 50%
+				float: left
 			.pict_wrapper
 				margin-bottom: 5em
 				position: relative
@@ -89,6 +163,9 @@
 					@media #{$_sm}
 						width: 11em
 						height: 11em
+					@media #{$_xs}
+						width: 8em
+						height: 8em
 			p
 				color: $blueText
 				font-size: 2.1em
